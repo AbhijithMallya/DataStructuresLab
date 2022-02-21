@@ -7,6 +7,32 @@ c. Search the BST for a given element (KEY) and report the appropriate message
 e. Exit
 */
 
+/*
+InOrder --> Left Root Right
+    Algorithm
+    ---------
+        1. Traverse the left subtree ( call left subtree)
+        2. Visit the root
+        3. Traverse the right subtree ( call right subtree)
+
+PreOrder --> Root Left RIght
+    Algorithms 
+    ----------
+        1. Visit the root
+        2. Traverse the left subtree 
+        3. Traverse right subtree
+
+PostOrder --> Left Right Root
+    Algorithms 
+    ----------
+        1. Traverse the left subtree 
+        2. Traverse right subtree
+        3. Visit the root
+        
+
+
+*/
+
 # include<stdio.h>
 # include<stdlib.h>
 int flag, i;
