@@ -19,11 +19,13 @@ for(k=0;k<MAX;k++) //using a for loop just to make sure that visited array
 {
 visited[k]=0; //making all elements in visited array as 0.
 }
+//if(front==-1)
+//front=0;
 queue[++rear] = start; //pre increment rear & insert "start" node to the
-++front; //increment front.
+//++front; //increment front.
 visited[start] =1; //after adding a node to queue, mark it as 1 in visited
 
-while(rear>=front) //this while loop ends only when your queue is empty.
+while(front<=rear) //this while loop ends only when your queue is empty.
 {
 start = queue[front++]; //pops out one value from queue & stores that in
 printf("%d", start); //print that start to the user.
@@ -71,7 +73,7 @@ int visited[MAX] ={0}; //create a single dimentional matrix of size MAX
 int adj[MAX][MAX],i,j; //adjacency matrix= 2D matrix of 5*5 nodes
 int option,size;
 do
-{system("cls");
+{
 printf("\n *****Main Menu*****");
 printf("\n 1. Enter values in graph");
 printf("\n 2. BFS Traversal");
@@ -88,10 +90,10 @@ scanf("%d", &adj[i][j]); //store the values in adjacency
 break;
 
 case 2: printf("\nBFS Traversal: ");
-bfs(adj,visited,0); //call bfs function with 3 arguments.
+bfs(adj,visited,1); //call bfs function with 3 arguments.
 break;
 case 3: printf("\nDFS Traversal: "); 
-dfs(adj,visited,0);
+dfs(adj,visited,1);
 break;
 }
 }while(option!=4);
