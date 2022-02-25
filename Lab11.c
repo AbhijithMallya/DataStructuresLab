@@ -10,30 +10,27 @@ DFS/BFS method*/
 #include<conio.h>
 #define MAX 5 //create a array of size 5*5
 
-void bfs(int adj[][MAX],int visited[],int start) //takes in 3 arguments
+void bfs(int adj[][MAX],int visited[],int start) //takes in 3 arguments 1)adjacency matrix 2)visited array 3) start node
 {
 int queue[MAX]; //we use queue in BFS. So initialize queue to size of MAX
-int rear = -1, front =-1; //initializing rear and front to -1, just to make
+int rear = -1, front =-1; //initializing rear and front to -1, just to make sure that the the queue is empty.
 int i,k;
 for(k=0;k<MAX;k++) //using a for loop just to make sure that visited array
 {
 visited[k]=0; //making all elements in visited array as 0.
 }
-//if(front==-1)
-//front=0;
-queue[++rear] = start; //pre increment rear & insert "start" node to the
-//++front; //increment front.
-visited[start] =1; //after adding a node to queue, mark it as 1 in visited
-
+queue[++rear] = start; //pre increment rear & insert "start" node to the queue.
+++front; //increment front.
+visited[start] =1; //after adding a node to queue, mark it as 1 in visited array.
 while(front<=rear) //this while loop ends only when your queue is empty.
 {
-start = queue[front++]; //pops out one value from queue & stores that in
+start = queue[front++]; //pops out one value from queue & stores that in "start"
 printf("%d", start); //print that start to the user.
-for(i=0;i<MAX;i++) //adding adjacent/neighbor nodes of the value deleted
+for(i=1;i<=MAX;i++) //adding adjacent/neighbor nodes of the value deleted
 {
 if(adj[start][i] && visited[i] == 0)
 {
-queue[++rear] = i; //increment rear and add the nodes at rear
+queue[++rear] = i; //increment rear and add the nodes at rear end of queue
 visited[i] = 1; //make thie visited as 1.
 }
 }
@@ -55,7 +52,7 @@ while(top!=-1)
 {
 start = stack[top--];
 printf("%d", start);
-for(i=0;i<MAX;i++)
+for(i=1;i<=MAX;i++)
 {
 if(adj[start][i] && visited[i] ==0)
 {
@@ -80,19 +77,19 @@ printf("\n 2. BFS Traversal");
 printf("\n 3. DFS Traversal");
 printf("\n 4. Exit");
 printf("\n\n Enter your option:");
-scanf("%d",&option);
+scanf("%d", &option);
 switch(option)
 {
 case 1: printf("\n Enter the adjacency matrix:");
-for(i=0;i<MAX;i++) //for rows
-for(j=0;j<MAX;j++) //for columns
-scanf("%d", &adj[i][j]); //store the values in adjacency
+for(i=1;i<=MAX;i++) //for rows
+for(j=1;j<=MAX;j++) //for columns
+scanf("%d", &adj[i][j]); //store the values in adjacency matrix. The graph is stored into the system. Now call either BFS or DFS totraverse.
 break;
 
-case 2: printf("\nBFS Traversal: ");
-bfs(adj,visited,1); //call bfs function with 3 arguments.
+case 2: printf("BFS Traversal:");
+bfs(adj,visited,1); //call bfs function with 3 arguments.1)adjacency matrix 2)visited array 3) start node
 break;
-case 3: printf("\nDFS Traversal: "); 
+case 3: printf("DFS Traversal:"); //call dfs function with 3arguments. 1)adjacency matrix 2)visited array 3) start node
 dfs(adj,visited,1);
 break;
 }
